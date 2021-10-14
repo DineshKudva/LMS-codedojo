@@ -1,0 +1,352 @@
+/* google fonts */
+/* @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"); */
+
+/* @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");*/
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600&display=swap");
+
+* {
+  /* font-family: "Quicksand", sans-serif; */
+  /* font-family: "Ubuntu", sans-serif; */
+  font-family: "Roboto Mono", monospace;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header {
+  margin: 0;
+  width: 100%;
+  background: rgb(10, 10, 65);
+}
+
+.header .head_container {
+  width: 90%;
+  max-width: 1350px;
+  margin: auto;
+}
+
+.header_icon {
+  margin-right: 1rem;
+  width: 45px;
+}
+
+.header_icon img {
+  width: inherit;
+}
+
+.main_head h1 {
+  font-size: 2.5em;
+}
+
+.options div {
+  margin-right: 1.2rem;
+  padding: 0.5rem 1rem;
+}
+
+.options .signup,
+.options .login,
+.options .logout,
+.options .profile,
+.options .greet,
+.options .tasks {
+  font-size: 1.3rem;
+}
+
+.options .signup:hover,
+.options .login:hover,
+.options .logout:hover,
+.options .profile:hover,
+.options .tasks:hover {
+  background-color: white;
+  border-radius: 5px;
+  border: none;
+  color: black;
+  transition: 0.4s;
+}
+
+.main_head a,
+.options a,
+.options h3 {
+  text-decoration: none;
+  color: white;
+  list-style: none;
+}
+
+header {
+  text-align: center;
+}
+
+form h2 {
+  font-size: 2.4em;
+  font-weight: 900;
+  margin-bottom: 40px;
+}
+
+form {
+  width: 40%;
+  margin: 4rem auto;
+  padding: 30px;
+  box-shadow: 1px 2px 10px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background: white;
+}
+
+form .form_foot {
+  text-align: center;
+}
+.form_foot p a {
+  text-decoration: none;
+  color: black;
+}
+.form_foot p a:hover {
+  text-decoration: underline;
+  color: rgb(77, 77, 250);
+}
+
+input {
+  padding: 10px 12px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  font-size: 1em;
+  width: 95%;
+}
+label {
+  display: block;
+  font-size: 1.5rem;
+  margin: 20px 0 10px;
+}
+button {
+  margin: 2rem auto 2rem;
+  border-radius: 20px;
+  background: rgb(10, 10, 65);
+  border: 0;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.5vw;
+  display: block;
+  padding: 10px 16px;
+  letter-spacing: 1px;
+  color: white;
+  width: 30%;
+  height: 60px;
+}
+button:hover {
+  cursor: pointer;
+  background: rgb(35, 35, 202);
+  transition: 0.4s;
+  letter-spacing: 3px;
+}
+.error {
+  color: #e61212;
+  margin: 10px 2px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+header h1 {
+  font-size: 3rem;
+}
+header h2 {
+  font-size: 2rem;
+}
+
+header .get_started,
+.back_to_courses {
+  width: fit-content;
+  border: none;
+  margin: auto;
+  margin-top: 3rem;
+  background-color: #0f256e;
+  border-radius: 5px;
+}
+
+header .get_started:hover,
+.back_to_courses:hover {
+  background-color: #173494;
+  transition: 0.3s;
+}
+
+header .btn,
+.back_to_courses .btn {
+  /* margin-top: 20px; */
+  padding: 12px 18px;
+  font-weight: bold;
+  display: inline-block;
+  font-size: 1.8em;
+  text-decoration: none;
+  color: white;
+}
+.back_to_courses img {
+  width: 20px;
+  margin-left: 1rem;
+}
+
+.course_wrapper1,
+.course_wrapper2,
+.course_wrapper3 {
+  width: 100%;
+  margin-top: 5rem;
+  height: 350px;
+}
+
+.course_wrapper2 {
+  background-color: #0f256e;
+}
+
+.course_wrapper2 .inner_wrap .course_info {
+  color: white;
+}
+
+.course_wrapper1 .inner_wrap .course_info .start_course,
+.course_wrapper3 .inner_wrap .course_info .start_course {
+  padding: 0.5rem 1.5rem;
+  width: fit-content;
+  border: none;
+  border-radius: 3px;
+  background-color: #0f256e;
+}
+
+.course_wrapper2 .inner_wrap .course_info .start_course {
+  padding: 0.5rem 1.5rem;
+  width: fit-content;
+  border: none;
+  border-radius: 3px;
+  background-color: #ddd;
+}
+
+.course_wrapper1 .inner_wrap .course_info .start_course a,
+.course_wrapper2 .inner_wrap .course_info .start_course a,
+.course_wrapper3 .inner_wrap .course_info .start_course a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #ddd;
+}
+
+.course_wrapper2 .inner_wrap .course_info .start_course a {
+  color: #0f256e;
+}
+.course_wrapper2 .inner_wrap .course_image img {
+  width: 85%;
+}
+
+.course_wrapper1 .inner_wrap,
+.course_wrapper2 .inner_wrap,
+.course_wrapper3 .inner_wrap {
+  width: 60%;
+  box-sizing: border-box;
+  margin: auto;
+  height: inherit;
+  padding: 1.5rem;
+}
+
+.course_wrapper1 .inner_wrap div,
+.course_wrapper2 .inner_wrap div,
+.course_wrapper3 .inner_wrap div {
+  width: 47%;
+}
+
+.course_wrapper1 .inner_wrap h1,
+.course_wrapper2 .inner_wrap h1,
+.course_wrapper3 .inner_wrap h1 {
+  font-size: 2.5rem;
+}
+
+.course_wrapper1 .inner_wrap h3,
+.course_wrapper2 .inner_wrap h3,
+.course_wrapper3 .inner_wrap h3 {
+  font-size: 1.5rem;
+}
+
+.iframe_container {
+  margin: auto;
+  margin-top: 4rem;
+  width: 70%;
+  border: 1px solid black;
+  padding: 1rem;
+}
+
+.profile_header{
+  margin-top: 2rem;
+}
+.profile_header h1{
+  text-align: center;
+}
+
+.profile_container{
+  width: 90%;
+  align-items: flex-start;
+  box-sizing: border-box;
+  padding: 1rem;
+  margin: 2rem auto;
+  /* border: 1px solid blue; */
+  text-align: center;
+}
+
+.profile_container .profile_photo{
+   width: 30%;
+   margin: 0;
+   margin-left: 1rem;
+   /* border: 1px solid red; */
+}
+
+.profile_container .profile_form{
+  width: 50%;
+  margin: 0;
+  margin-right: 1rem;
+  
+  /* border: 1px solid green; */
+  padding: 1rem;
+}
+
+/*  */
+
+.profile_container .profile_form form{
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  box-shadow: none;
+  text-align: left;
+}
+
+.profile_container .profile_form form label{
+  font-size: 1.6rem;
+}
+
+.profile_container .profile_form form input{
+  font-size: 1.3rem;
+}
+
+.profile_container .profile_form form button{
+  margin-left: 0;
+}
+
+footer {
+  text-align: center;
+  margin: 250px 0 30px 0;
+  width: 100%;
+  color: rgb(121, 117, 117);
+  font-size: 1.5rem;
+  height: 2.5rem;
+}
+
+@media screen and (max-width: 800px) {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  .container-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
