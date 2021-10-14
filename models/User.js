@@ -38,7 +38,7 @@ userSchema.post('save', function(doc,next){
     next();
    })
    
-   //fire a function before doc saved to db
+//fire a function before doc saved to db
    
 userSchema.pre('save',async function(next){
     const salt = await  bcrypt.genSalt();

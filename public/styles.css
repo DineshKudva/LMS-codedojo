@@ -270,9 +270,37 @@ header .btn,
   margin: auto;
   margin-top: 4rem;
   width: 70%;
+  height: 350px;
   border: 1px solid black;
   padding: 1rem;
 }
+
+.iframe_container .course_text{
+  border: 1px solid blue;
+  box-sizing: border-box;
+  padding : 1rem;
+  width: 45%;
+}
+
+.iframe_container .course_text h1,
+.iframe_container .course_text h2,
+.iframe_container .course_text h3{
+  margin: 0  0 1rem 0;
+}
+
+.iframe_container .course_text .flag{
+  width: fit-content;
+  border: none;
+  background-color: grey;
+  padding: 0.5rem;
+}
+
+.iframe_container .course_text .flag:hover{
+  cursor: pointer;
+}
+
+
+
 
 .profile_header{
   margin-top: 2rem;
