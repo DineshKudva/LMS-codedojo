@@ -9,14 +9,14 @@ const taskSchema = new mongoose.Schema({
     type: String,
     required: [true, "Body not entered"],
   },
-  Completed: {
+  status: {
     type: Boolean,
     required: [true, "status not set"],
   },
-  Deadline: {
+  deadline: {
     type: Date,
     required: [true, "Deadline not set"],
-  },
+  }
 },{ timestamps:true });
 
 // fire a function after doc saved to db

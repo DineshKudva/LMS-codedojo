@@ -6,6 +6,7 @@ const cookieParser = require("cookie-parser");
 const { requireAuth, checkUser } = require("./middleware/authMiddleware");
 const Task = require("./models/Task");
 
+
 // const port = process.env.PORT || 3000;
 
 const app = express();
@@ -14,6 +15,7 @@ const app = express();
 app.use(express.static("public"));
 app.use(express.json());
 app.use(cookieParser());
+app.use(express.urlencoded({extended:true}))
 
 //set view engine:
 app.set("view engine", "ejs");

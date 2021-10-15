@@ -116,19 +116,19 @@ module.exports.addtask_get =(req,res)=>{
 }
 
 module.exports.addtask_post =async (req,res)=>{
-    console.log(req.body)
+    // console.log(req.body)
 
     req.body.status = (req.body.status == "on")?true:false;
 
     console.log(req.body)
 
-    // const new_task = new Task(req.body);
-    // new_task.save()
-    // .then((result)=>{
-    //     console.log(result)
-    //     res.redirect('/usertasks')
-    // })
-    // .catch((err)=>console.log(err))
+    const new_task = new Task(req.body);
+    new_task.save()
+    .then((result)=>{
+        // console.log(result)
+        res.redirect('/usertasks')
+    })
+    .catch((err)=>console.log(err))
 
     res.redirect('/usertasks');
 
