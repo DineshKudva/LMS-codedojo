@@ -129,3 +129,15 @@ module.exports.addtask_post = async (req, res) => {
 
   res.redirect("/usertasks");
 };
+
+// module.exports.delete_task = (req,res)=>{
+//   const id = req.params.id;
+
+//   Task.findByIdAndDelete(id)
+//   .then(result=>{
+//     res.json({redirect:'/usertasks'})
+//   })
+//   .catch(err=>{
+//     console.log(err);
+//   })
+// }
