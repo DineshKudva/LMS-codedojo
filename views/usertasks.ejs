@@ -9,8 +9,14 @@
           <h3><%= task.body %></h3>
           <p class="status">Completed status: <%= task.status %></p>
           <p class="deadline" >Deadline: <%= task.deadline  %> </p>
-          <a href="/"><div class="modify">Update</div></a>
-          <a href="/" class="delete" data-doc="<%= task.id  %> "><div  class="modify">Delete</div></a>
+
+
+          <a class="update" data-doc="<%= task.id  %> "><div class="modify">Update</div></a>
+
+
+          <a class="delete" data-doc="<%= task.id  %> "><div  class="modify">Delete</div></a>
+          
+          
           <br>
           <hr style="margin-top: 1rem;">
         <% }) %>
@@ -20,19 +26,33 @@
       <a href="/addtask"><div class="add_task">+ Add Task</div></a>
     </div>
 
-    <!-- <script>
+    <script>
       const trash = document.querySelector('a.delete');
+      const upstat= document.querySelector('a.update');
+
+
 
       trash.addEventListener('click',(e)=>{
-        const endpoint = `/tasks/${trash.dataset.doc}`;
+        const endpoint = `/usertasks/${trash.dataset.doc}`;
 
         fetch(endpoint,{
           method: 'DELETE'
         })
         .then((response)=> response.json())
         .then((data)=> window.location.href=data.redirect)
-        .catch(err => console.log(err));
+        .catch((err) => {console.log(err)});
       })
-    </script> -->
+
+      upstat.addEventListener('click',(e)=>{
+        const endpoint = `/usertasks/${upstat.dataset.doc}`;
+
+        fetch(endpoint,{
+          method: 'PUT'
+        })
+        .then((response)=> response.json())
+        .then((data)=> window.location.href=data.redirect)
+        .catch(err => console.log(err));
+      })     
+    </script>
 
 <%- include('partials/footer'); -%>

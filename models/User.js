@@ -28,6 +28,9 @@ const userSchema = new mongoose.Schema({
         type: String,
         required:[true, 'Please enter a Contact number'],
           
+    },
+    img:{
+        type:String
     }
     
 });

@@ -23,6 +23,7 @@ router.put('/profile',authController.profile_put);
 router.get('/addtask',authController.addtask_get);
 router.post('/addtask',authController.addtask_post);
 
-// router.delete('/usertasks',authController.delete_task);
+router.delete('/usertasks/:id',authController.delete_task);
+router.put('/usertasks/:id',authController.update_task);
 
 module.exports = router;

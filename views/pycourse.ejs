@@ -54,16 +54,15 @@
   const button=document.getElementsByClassName('flag');
     
   for(var i=0;i<button.length;i++){
-    button[i].addEventListener('click',markCourse())
+    button[i].addEventListener('click',markCourse)
   }
 
   function markCourse(e){
-   
-   e.preventDefault();
+  
 
-    button.style.background="green";
-    button.textContent="Completed";
-    button.style.color="white";
+    e.target.style.background="green";
+    e.target.textContent="Completed";
+    e.target.style.color="white";
   }
 </script>
 

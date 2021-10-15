@@ -101,10 +101,16 @@ module.exports.profile_get = (req, res) => {
 };
 
 module.exports.profile_put = (req, res) => {
-  console.log(req.body);
+  const { name, role, pno, id } =req.body;
+  //console.log(req.body);
+   
+  User.findOneAndUpdate({_id:id},{ name, role, pno })
+  .then((result)=>{
+    res.json({redirect: '/profile'});
+  })
+  .catch((err)=>console.log(err))
 
-  // console.log(req.body.id);
-  res.render("profile", { title: "Profile" });
+  // res.render("profile", { title: "Profile" });
 };
 
 module.exports.addtask_get = (req, res) => {
@@ -130,14 +136,31 @@ module.exports.addtask_post = async (req, res) => {
   res.redirect("/usertasks");
 };
 
-// module.exports.delete_task = (req,res)=>{
-//   const id = req.params.id;
+module.exports.delete_task = (req,res)=>{
+  const id = req.params.id;
 
-//   Task.findByIdAndDelete(id)
-//   .then(result=>{
-//     res.json({redirect:'/usertasks'})
-//   })
-//   .catch(err=>{
-//     console.log(err);
-//   })
-// }
+  Task.findByIdAndDelete(id)
+  .then(result=>{
+    res.json({ redirect:'/usertasks' })
+  })
+  .catch(err=>{
+    console.log(err);
+  })
+}
+
+module.exports.update_task = (req,res)=>{
+  const id = req.params.id;
+  Task.findById(id)
+  .then((result)=>{
+   const status= !result.status;
+
+   Task.findByIdAndUpdate({_id:id},{status})
+  .then(result=>{
+    res.json({ redirect:'/usertasks' })
+  })
+  .catch(err=>{
+    console.log(err);
+  })
+})
+  
+}
