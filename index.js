@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const authRoutes = require("./routes/authRoutes");
+
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const { requireAuth, checkUser } = require("./middleware/authMiddleware");
@@ -30,6 +31,11 @@ mongoose
 app.get("*", checkUser);
 app.get("/", (req, res) => res.render("home", { title: "Code Dojo" }));
 app.get("/courses", requireAuth, (req, res) =>
-  res.render("courses", { title: "courses" })
+  res.render("courses", { title: "Courses" })
 );
+app.get("/usertasks",(req,res)=>res.render('/usertasks',{title:"Tasks"})
+);
+
+
 app.use(authRoutes);
+

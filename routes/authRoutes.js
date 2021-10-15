@@ -15,8 +15,9 @@ router.get('/pycourse',authController.pycourse_get);
 router.get('/fecourse',authController.fecourse_get);
 router.get('/jcourse',authController.jcourse_get);
 
-router.get('/profile',authController.profile_get);
 
+//profile:
+router.get('/profile',authController.profile_get);
 router.put('/profile',authController.profile_put);
 
 

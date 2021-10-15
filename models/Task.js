@@ -13,14 +13,14 @@ const taskSchema = new mongoose.Schema({
     type: Date,
     required: [true, "Deadline not set"],
   },
-});
+},{ timestamps:true });
 
-//fire a function after doc saved to db
-userSchema.post("save", function (doc, next) {
+// fire a function after doc saved to db
+taskSchema.post("save", function (doc, next) {
   console.log("new task was added:", doc);
   next();
 });
 
-const Task = mongoose.model("task", userSchema);
+const Task = mongoose.model("task",taskSchema);
 
 module.exports = Task;
