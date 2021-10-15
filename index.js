@@ -4,6 +4,7 @@ const authRoutes = require("./routes/authRoutes");
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const { requireAuth, checkUser } = require("./middleware/authMiddleware");
+const Task = require("./models/Task");
 
 // const port = process.env.PORT || 3000;
 
@@ -33,8 +34,15 @@ app.get("/", (req, res) => res.render("home", { title: "Code Dojo" }));
 app.get("/courses", requireAuth, (req, res) =>
   res.render("courses", { title: "Courses" })
 );
-app.get("/usertasks",(req,res)=>res.render('/usertasks',{title:"Tasks"})
-);
+app.get("/usertasks",(req,res)=>{
+  Task.find().sort({ createdAt : -1})
+  .then((result)=>{
+    res.render('usertasks',{title:"Tasks",tasks: result})
+  })
+  .catch((err)=>{
+    console.log(err);
+  })
+})
 
 
 app.use(authRoutes);

@@ -71,7 +71,6 @@
 
     const name = form.name.value;
     const email = form.email.value;
-    const password = form.password.value;
     const role = form.role.value;
     const pno = form.pno.value;
     const id = form.id.value;
@@ -79,7 +78,7 @@
     try {
       const res = await fetch("/profile", {
         method: "PUT",
-        body: JSON.stringify({ name, email, password, role, pno, id }),
+        body: JSON.stringify({ name, email, role, pno, id }),
         headers: { "Content-Type": "application/json" },
       });
       const data = await res.json();

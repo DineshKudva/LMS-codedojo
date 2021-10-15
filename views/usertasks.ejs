@@ -1,3 +1,19 @@
 <%- include('partials/header'); -%>
 
+<div class="task content">
+    <h2>Tasks</h2>
+
+    <% if (tasks.length > 0) { %>
+        <% tasks.forEach(task => { %>
+          <h2 class="title"><%= task.title %></h2>
+          <h3><%= task.body %></h3>
+          <p class="status"><%= task.Completed %></p>
+          <p class="deadline" ><%= task.Deadline  %> </p>
+        <% }) %>
+      <% } else { %>
+        <p>There are no blogs to display...</p>
+      <% } %>
+      <a href="/addtask" style="text-decoration: none; "><div style="font-size: 2rem; text-align: center; background-color: rgb(10, 10, 65); color: white; width: 50%;">+</div></a>
+    </div>
+
 <%- include('partials/footer'); -%>

@@ -20,5 +20,7 @@ router.get('/jcourse',authController.jcourse_get);
 router.get('/profile',authController.profile_get);
 router.put('/profile',authController.profile_put);
 
+router.get('/addtask',authController.addtask_get);
+router.post('/addtask',authController.addtask_post);
 
 module.exports = router;

@@ -34,7 +34,7 @@ const userSchema = new mongoose.Schema({
 
 //fire a function after doc saved to db
 userSchema.post('save', function(doc,next){
-    console.log('new user was created:',doc);
+    // console.log('new user was created:',doc);
     next();
    })
    

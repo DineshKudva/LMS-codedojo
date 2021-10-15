@@ -1,9 +1,13 @@
 const mongoose = require("mongoose");
 
 const taskSchema = new mongoose.Schema({
-  Description: {
+  title: {
     type: String,
-    required: [true, "description not entered"],
+    required: [true, "Title not entered"],
+  },
+  body: {
+    type: String,
+    required: [true, "Body not entered"],
   },
   Completed: {
     type: Boolean,
@@ -17,7 +21,7 @@ const taskSchema = new mongoose.Schema({
 
 // fire a function after doc saved to db
 taskSchema.post("save", function (doc, next) {
-  console.log("new task was added:", doc);
+  // console.log("new task was added:", doc);
   next();
 });
 

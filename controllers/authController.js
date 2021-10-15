@@ -1,4 +1,5 @@
 const User = require('../models/User');
+const Task = require('../models/Task')
 const jwt = require('jsonwebtoken');
 
 //handle errors:
@@ -110,6 +111,25 @@ module.exports.profile_put =(req,res)=>{
     res.render('profile',{title: 'Profile'});
 }
 
-// module.exports._get =(req,res)=>{
-//     res.render('',{title: ''});
-// }
+module.exports.addtask_get =(req,res)=>{
+    res.render('addtask',{title: 'Add Task'});
+}
+
+module.exports.addtask_post =async (req,res)=>{
+    console.log(req.body)
+
+    req.body.status = (req.body.status == "on")?true:false;
+
+    console.log(req.body)
+
+    // const new_task = new Task(req.body);
+    // new_task.save()
+    // .then((result)=>{
+    //     console.log(result)
+    //     res.redirect('/usertasks')
+    // })
+    // .catch((err)=>console.log(err))
+
+    res.redirect('/usertasks');
+
+}

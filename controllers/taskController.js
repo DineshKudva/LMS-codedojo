@@ -1,8 +1,9 @@
 const Task = require('../models/Task');
 const User = require('../models/User');
 
-// module.exports.tasks_get = (req,res)=>{
-//     res.render('usertasks', {title: 'Tasks'})
-// }
 
 
+
+module.exports.addtask_get=(req,res)=>{
+     res.render('addtask',{title: 'Add Task'})
+}

@@ -1,0 +1,70 @@
+<%- include('partials/header'); -%>
+
+<form action="/addtask" method="post">
+    <h2>Add Task</h2>
+    <label for="title">Title</label>
+    <input type="text" name="title" required autocomplete="off"/>
+    <div class="title error"></div>
+    <label for="body">Body</label>
+    <!-- <textarea type="text" name="body" required  autocomplete="off" /> -->
+    <textarea name="body" id="" cols="50" required resizable="false" rows="10"></textarea>
+    <div class="body error"></div>
+    <label for="status">Status</label>
+    <!-- <input type="text" name="status" required placeholder="(true or false)"  autocomplete="off"/> -->
+    <input type="checkbox" name="status" id="">
+    <div class="status error"></div>
+  
+    <label for="deadline">Deadline</label>
+    <!-- <input type="text" placeholder="last date to complete." name="deadline" required  autocomplete="off"/> -->
+    <input type="date" name="deadline" id="">
+    <div class="deadline error"></div>
+  
+    <input type="submit" value="submit">
+  </form>
+
+  <!-- <script>
+    const form = document.querySelector("form");
+  
+    const titleError = document.querySelector(".title.error");
+    const bodyError = document.querySelector(".body.error");
+    const statusError = document.querySelector(".status.error");
+    const deadlineError = document.querySelector(".deadline.error");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      //reset errors
+      titleError.textContent = "";
+      bodyError.textContent = "";
+      statusError.textContent = "";
+      deadlineError.textContent = "";
+      
+      //get values
+  
+      const title = form.title.value;
+      const body = form.body.value;
+      const status = form.status.value;
+      const deadline=form.deadline.value;
+  
+      try {
+        const res = await fetch("/addtask", {
+          method: "POST",
+          body: JSON.stringify({ title, body, status,deadline }),
+          headers: { "Content-Type": "application/json" },
+        });
+        const data = await res.json();
+        // console.log(data);
+        if (data.errors) {
+          titleError.textContent = data.errors.title;
+          bodyError.textContent = data.errors.body;
+          statusError.textContent = data.errors.status;
+          deadlineError.textContent = data.errors.deadline
+        }
+        if (data.user) {
+          location.assign("/usertask");
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    });
+  </script>   -->
+
+<%- include('partials/footer'); -%>
