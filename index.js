@@ -7,7 +7,7 @@ const { requireAuth, checkUser } = require("./middleware/authMiddleware");
 const Task = require("./models/Task");
 
 
-// const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
 const app = express();
 
@@ -28,7 +28,7 @@ mongoose
     useUnifiedTopology: true,
     useCreateIndex: true,
   })
-  .then((result) => app.listen(3000))
+  .then((result) => app.listen(port))
   .catch((err) => console.log(err));
 
 app.get("*", checkUser);
