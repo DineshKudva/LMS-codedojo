@@ -1,7 +1,7 @@
 <%- include('partials/header'); -%>
 
 <div class="back_to_courses container-flex">
-  <img src="go_back.png" alt="" />
+  <a href="/courses" class="backtrack"><img src="go_back.png" alt="" /></a>
   <a href="/courses" class="btn">Courses</a>
 </div>
 
@@ -71,15 +71,17 @@
     </div>
   </div>
   <!-- FLEXBOX -->
-  <iframe
-    width="560"
-    height="315"
-    src="https://www.youtube.com/embed/videoseries?list=PL4cUxeGkcC9i3FXJSUfmsNOx8E7u6UuhG"
-    title="YouTube video player"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen
-  ></iframe>
+  <div class="video_container">
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/videoseries?list=PL4cUxeGkcC9i3FXJSUfmsNOx8E7u6UuhG"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </div>
 </div>
 
 <div class="iframe_container container-flex
@@ -96,15 +98,17 @@
       Mark as complete
     </div>
   </div>
-  <iframe
-    width="560"
-    height="315"
-    src="https://www.youtube.com/embed/W6NZfCO5SIk"
-    title="YouTube video player"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen
-  ></iframe>
+  <div class="video_container">
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/W6NZfCO5SIk"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </div>
   
 </div>
 
@@ -121,6 +125,7 @@
       Mark as complete
     </div>
   </div>
+  <div class="video_container">
   <iframe
 width="560"
 height="315"
@@ -129,7 +134,7 @@ title="YouTube video player"
 frameborder="0"
 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 allowfullscreen
-></iframe>
+></iframe></div>
   
 </div>
 
