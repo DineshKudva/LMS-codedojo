@@ -380,21 +380,23 @@ header .btn,
   height: 165px;
   margin: 0;
   margin-left: 1rem;
-  border-radius: 50%;
+
   border: none;
   /* border: 1px solid red; */
 }
 
-.profile_container .profile_photo picture img {
-  width: 40%;
+.profile_container .profile_photo img {
+  width: 50%;
+  border-radius: 50%;
+  /* border: 2px solid #0f256e; */
 }
-
+/* 
 .profile_container .profile_photo a {
   text-decoration: none;
   color: white;
-}
+} */
 
-.profile_container .profile_photo a div {
+.profile_container .profile_photo label {
   border: none;
   width: fit-content;
   padding: 0.5rem 1rem;
@@ -402,6 +404,7 @@ header .btn,
   margin-top: 1rem;
   background: #0f256e;
   border-radius: 5px;
+  color: white;
 }
 
 .profile_container .profile_form {
