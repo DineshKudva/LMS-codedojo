@@ -462,6 +462,10 @@ header .btn,
   border-radius: 8px;
 }
 
+.task a .modify:hover{
+  cursor: pointer;
+}
+
 .task a .add_task {
   font-size: 2rem;
   box-sizing: border-box;
