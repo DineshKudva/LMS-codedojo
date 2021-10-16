@@ -26,6 +26,7 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
+    useFindAndModify: false
   })
   .then((result) => app.listen(port))
   .catch((err) => console.log(err));
