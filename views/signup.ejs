@@ -3,32 +3,36 @@
 <form>
   <h2>Sign up</h2>
   <label for="name">Username</label>
-  <input type="text" name="name" required autocomplete="off"/>
+  <input type="text" name="name" required autocomplete="off" />
   <div class="name error"></div>
   <label for="email">Email</label>
-  <input type="text" name="email" required  autocomplete="off" />
+  <input type="text" name="email" required autocomplete="off" />
   <div class="email error"></div>
   <label for="password">Password</label>
-  <input type="password" name="password" required  autocomplete="off"/>
+  <input type="password" name="password" required autocomplete="off" />
   <div class="password error"></div>
 
   <label for="role">Role</label>
-  <input type="text" placeholder="(Student,Teacher,Developer etc...)" name="role" required  autocomplete="off"/>
+  <input
+    type="text"
+    placeholder="(Student,Teacher,Developer etc...)"
+    name="role"
+    required
+    autocomplete="off"
+  />
   <!-- <div class="password error"></div> -->
 
   <label for="pno">Contact Number</label>
-  <input type="text" name="pno" required  autocomplete="off"/>
+  <input type="text" name="pno" required autocomplete="off" />
   <!-- <div class="password error"></div> -->
 
+  <img src="" alt="" id="img-preview"  />
   
-  <img src="" alt="" id="img-preview" style="display: none;"/>
-  <div class="signup_img">
     <label class="file-upload-container image_select" for="file-upload">
       <input id="file-upload" style="display: none" type="file" />
       Select an Image
     </label>
-  </div>
- 
+  
 
   <button>Sign up</button>
 </form>
@@ -42,7 +46,7 @@
 
   var imagePreview = document.getElementById("img-preview");
   var fileUpload = document.getElementById("file-upload");
-  const imageURL;
+  let imageURL;
 
   fileUpload.addEventListener("change", function (e) {
     var file = e.target.files[0];
@@ -67,7 +71,7 @@
       });
   });
 
-  
+
   const form = document.querySelector("form");
 
   const nameError = document.querySelector(".name.error");
@@ -95,7 +99,6 @@
         headers: { "Content-Type": "application/json" },
       });
       const data = await res.json();
-      // console.log(data);
       if (data.errors) {
         nameError.textContent = data.errors.name;
         emailError.textContent = data.errors.email;
@@ -109,37 +112,6 @@
     }
   });
 </script>
-
-<!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script>
-  const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/dfinqrdwj/upload";
-  var CLOUDINARY_UPLOAD_PRESET = "igosuctc";
-
-  var imagePreview = document.getElementById("img-preview");
-  var fileUpload = document.getElementById("file-upload");
-
-  fileUpload.addEventListener("change", function (e) {
-    var file = e.target.files[0];
-    var formData = new FormData();
-    formData.append("file", file);
-    formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
-    axios({
-      url: CLOUDINARY_URL,
-      method: "POST",
-      data: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      data: formData,
-    })
-      .then(function (res) {
-        console.log(res);
-        imagePreview.src = res.data.secure_url;
-      })
-      .catch(function (err) {
-        console.log(err);
-      });
-  });
-</script> -->
 
 
 
