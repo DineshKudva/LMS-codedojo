@@ -5,18 +5,14 @@
 </div>
 
 <div class="profile_container container-flex">
-  <div class="profile_photo">
-    <!-- <h1>photo</h1> -->
-    <!-- <picture>
-       <source src="">
-       <img src="profile.svg" alt="profile photo">
-     </picture>
-     <a href=""><div>Edit Photo</div></a> -->
-    <img src="profile.svg" alt="" id="img-preview" />
-    <label class="file-upload-container" for="file-upload">
-      <input id="file-upload" style="display: none" type="file" />
-      Select an Image
-    </label>
+  <div class="photo">
+    <div class="profile_photo">
+      <img src="<%= user.imageURL %> " alt="" id="img-preview" />
+      <label class="file-upload-container" for="file-upload">
+        <input id="file-upload" style="display: none" type="file" />
+        Select an Image
+      </label>
+    </div>
   </div>
 
   <div class="profile_form">
@@ -70,24 +66,60 @@
   </div>
 </div>
 
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 <script>
+  
+  const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/dfinqrdwj/upload";
+  var CLOUDINARY_UPLOAD_PRESET = "igosuctc";
+
+  var imagePreview = document.getElementById("img-preview");
+  var fileUpload = document.getElementById("file-upload");
+  let imageURL;
+
+  fileUpload.addEventListener("change", function (e) {
+    var file = e.target.files[0];
+    var formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
+    axios({
+      url: CLOUDINARY_URL,
+      method: "POST",
+      data: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      data: formData,
+    })
+      .then(function (res) {
+        console.log(res);
+        imagePreview.src = res.data.secure_url;
+        imageURL=res.data.secure_url;
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+  });
+
   const form = document.querySelector("form");
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     //get values
+    var imagePreview = document.getElementById("img-preview");
 
     const name = form.name.value;
-
     const role = form.role.value;
     const pno = form.pno.value;
     const id = form.id.value;
+    const imageURL=imagePreview.src;
+    
 
     try {
       const res = await fetch("/profile", {
         method: "PUT",
-        body: JSON.stringify({ name, role, pno, id }),
+        body: JSON.stringify({ name, role, pno, id, imageURL }),
         headers: { "Content-Type": "application/json" },
       });
       const data = await res.json();
@@ -100,8 +132,8 @@
   });
 </script>
 
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script>
+
+<!-- <script>
   const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/dfinqrdwj/upload";
   var CLOUDINARY_UPLOAD_PRESET = "igosuctc";
 
@@ -129,6 +161,6 @@
         console.log(err);
       });
   });
-</script>
+</script> -->
 
 <%- include('partials/footer'); -%>

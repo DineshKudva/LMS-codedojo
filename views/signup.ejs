@@ -20,10 +20,54 @@
   <input type="text" name="pno" required  autocomplete="off"/>
   <!-- <div class="password error"></div> -->
 
+  
+  <img src="" alt="" id="img-preview" style="display: none;"/>
+  <div class="signup_img">
+    <label class="file-upload-container image_select" for="file-upload">
+      <input id="file-upload" style="display: none" type="file" />
+      Select an Image
+    </label>
+  </div>
+ 
+
   <button>Sign up</button>
 </form>
 
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 <script>
+
+  const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/dfinqrdwj/upload";
+  var CLOUDINARY_UPLOAD_PRESET = "igosuctc";
+
+  var imagePreview = document.getElementById("img-preview");
+  var fileUpload = document.getElementById("file-upload");
+  const imageURL;
+
+  fileUpload.addEventListener("change", function (e) {
+    var file = e.target.files[0];
+    var formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
+    axios({
+      url: CLOUDINARY_URL,
+      method: "POST",
+      data: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      data: formData,
+    })
+      .then(function (res) {
+        console.log(res);
+        imagePreview.src = res.data.secure_url;
+        imageURL=res.data.secure_url;
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+  });
+
+  
   const form = document.querySelector("form");
 
   const nameError = document.querySelector(".name.error");
@@ -47,7 +91,7 @@
     try {
       const res = await fetch("/signup", {
         method: "POST",
-        body: JSON.stringify({ name, email, password,role,pno }),
+        body: JSON.stringify({ name, email, password,role,pno,imageURL }),
         headers: { "Content-Type": "application/json" },
       });
       const data = await res.json();
@@ -65,5 +109,38 @@
     }
   });
 </script>
+
+<!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+  const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/dfinqrdwj/upload";
+  var CLOUDINARY_UPLOAD_PRESET = "igosuctc";
+
+  var imagePreview = document.getElementById("img-preview");
+  var fileUpload = document.getElementById("file-upload");
+
+  fileUpload.addEventListener("change", function (e) {
+    var file = e.target.files[0];
+    var formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
+    axios({
+      url: CLOUDINARY_URL,
+      method: "POST",
+      data: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      data: formData,
+    })
+      .then(function (res) {
+        console.log(res);
+        imagePreview.src = res.data.secure_url;
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+  });
+</script> -->
+
+
 
 <%- include('partials/footer'); -%>

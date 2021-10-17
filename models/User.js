@@ -28,10 +28,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required:[true, 'Please enter a Contact number'],
           
+    },
+    imageURL:{
+        type: String
     }
-    // img:{
-    //     type:String
-    // }
     
 });
 

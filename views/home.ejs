@@ -3,7 +3,11 @@
 <header>
     <h1>Learn to code for free</h1>
     <h2>Get your feet wet and set out for an adventure!</h2>
+    <% if(user){ %> 
     <div class="get_started"><a href="/courses" class="btn">Get Started</a></div>
+    <% }else{ %>
+    <div class="get_started"><a href="/signup" class="btn">Get Started</a></div> 
+    <% } %>      
 </header>
 
 <div class="info_section">
@@ -68,8 +72,11 @@
     </div>
 </div> 
 
+<% if(!user) { %> 
 <section>
 <div class="get_started"><a href="/signup" class="btn">Sign Up</a></div>
 </section>
+
+<% } %> 
 
 <%- include('partials/footer'); -%>

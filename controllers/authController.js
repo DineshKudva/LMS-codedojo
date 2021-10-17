@@ -51,10 +51,10 @@ module.exports.login_get = (req, res) => {
 };
 
 module.exports.signup_post = async (req, res) => {
-  const { name, email, password, role, pno } = req.body;
+  const { name, email, password, role, pno, imageURL} = req.body;
 
   try {
-    const user = await User.create({ name, email, password, role, pno });
+    const user = await User.create({ name, email, password, role, pno, imageURL });
     const token = createToken(user._id);
     res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
     res.status(201).json({ user: user._id });
@@ -101,10 +101,10 @@ module.exports.profile_get = (req, res) => {
 };
 
 module.exports.profile_put = (req, res) => {
-  const { name, role, pno, id } =req.body;
+  const { name, role, pno, id, imageURL } =req.body;
   //console.log(req.body);
    
-  User.findOneAndUpdate({_id:id},{ name, role, pno })
+  User.findOneAndUpdate({_id:id},{ name, role, pno,imageURL })
   .then((result)=>{
     res.json({redirect: '/profile'});
   })
@@ -118,22 +118,20 @@ module.exports.addtask_get = (req, res) => {
 };
 
 module.exports.addtask_post = async (req, res) => {
-  // console.log(req.body)
+  
 
   req.body.status = req.body.status == "on" ? true : false;
 
-  console.log(req.body);
 
   const new_task = new Task(req.body);
-  new_task
-    .save()
+  new_task.save()
     .then((result) => {
-      // console.log(result)
+      
       res.redirect("/usertasks");
     })
     .catch((err) => console.log(err));
 
-  res.redirect("/usertasks");
+  // res.redirect("/usertasks");
 };
 
 module.exports.delete_task = (req,res)=>{

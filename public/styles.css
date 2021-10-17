@@ -168,6 +168,19 @@ form .form_foot {
   color: #4d4dfa;
 }
 
+.image_select{
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  background: #0f256e;
+  color: white;
+  font-size: 1.5vw;
+  border-radius: 5px;
+}
+
+.image_select:hover{
+  cursor: pointer;
+}
+
 input {
   padding: 10px 12px;
   border-radius: 4px;
@@ -175,6 +188,8 @@ input {
   font-size: 1em;
   width: 95%;
 }
+
+
 label {
   display: block;
   font-size: 1.5rem;
@@ -233,7 +248,6 @@ header .get_started:hover,
 
 header .btn,
 .back_to_courses .btn {
-  /* margin-top: 20px; */
   padding: 12px 18px;
   font-weight: bold;
   display: inline-block;
@@ -330,7 +344,7 @@ header .btn,
   margin-top: 4rem;
   width: 80%;
   height: fit-content;
-  /* border: 1px solid black; */
+ 
   padding: 1rem;
 }
 
@@ -371,30 +385,29 @@ header .btn,
   box-sizing: border-box;
   padding: 1rem;
   margin: 2rem auto;
-  /* border: 1px solid blue; */
   text-align: center;
 }
 
-.profile_container .profile_photo {
+.profile_container .photo {
   width: 30%;
   height: 165px;
   margin: 0;
   margin-left: 1rem;
-
   border: none;
-  /* border: 1px solid red; */
+ 
+}
+
+.profile_container .photo .profile_photo{
+  width: 100%;
 }
 
 .profile_container .profile_photo img {
-  width: 50%;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
-  /* border: 2px solid #0f256e; */
+ 
 }
-/* 
-.profile_container .profile_photo a {
-  text-decoration: none;
-  color: white;
-} */
+
 
 .profile_container .profile_photo label {
   border: none;
@@ -405,6 +418,10 @@ header .btn,
   background: #0f256e;
   border-radius: 5px;
   color: white;
+}
+
+.profile_container .profile_photo label:hover{
+  cursor: pointer;
 }
 
 .profile_container .profile_form {
@@ -520,6 +537,7 @@ footer {
 }
 
 @media screen and (max-width: 1000px) {
+
   .header .head_container .main_head .header_text h1 {
     font-size: 2.5vw;
   }
@@ -570,6 +588,31 @@ footer {
   .header .head_container .options a div {
     font-size: 3vw;
     margin-bottom: 1rem;
+  }
+
+
+  form{
+    width: 90%;
+    padding: .5rem;
+    font-size: 2.5vw;
+    margin: 1rem;
+    box-shadow: none;
+  }
+
+  form label{
+      font-size: 4vw;
+  }
+  
+  form input{
+    width: inherit;
+  }
+
+  form .signup_img label{
+    font-size: 2.5vw;
+  }
+  
+  button{
+    font-size: 3vw;
   }
 
   .info_section .info_container {
@@ -650,7 +693,16 @@ footer {
   }
 
   .profile_header h1 {
-    font-size: 5vw;
+    font-size: 4vw;
+  }
+
+  .profile_container .photo{
+    height: fit-content;
+    width: 50%;
+  }
+
+  .profile_container .photo .profile_photo label{
+    font-size: 2.5vw;
   }
 
   .profile_container .profile_form {
