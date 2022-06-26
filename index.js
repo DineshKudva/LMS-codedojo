@@ -25,7 +25,7 @@ app.use(express.urlencoded({
 app.set("view engine", "ejs");
 
 const dbURI =
-  "mongodb+srv://dinesh19:c2zjkgKvCxxTaHZp@nodetuts.djld1.mongodb.net/codedojo?retryWrites=true&w=majority";
+  "mongodb+srv://dinesh19:T3hIEh15l6iRE0RJ@nodetuts.djld1.mongodb.net/codedojo?retryWrites=true&w=majority";
 mongoose
   .connect(dbURI, {
     useNewUrlParser: true,
